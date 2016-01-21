@@ -136,6 +136,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        //External libraries
         Dingo\Api\Provider\LaravelServiceProvider::class,
 
         /*
@@ -145,6 +146,11 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        //External Libraries
+        Joselfonseca\LaravelTactician\Providers\LaravelTacticianServiceProvider::class
+
+
 
     ],
 

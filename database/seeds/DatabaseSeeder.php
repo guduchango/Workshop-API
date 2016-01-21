@@ -13,8 +13,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-        factory(\App\User::class, 50)->create()->each(function($user){
-            $user->posts()->saveMany(factory(\App\Post::class, 100)->make());
+        factory(\App\User::class, 5)->create()->each(function($user){
+            $user->posts()->saveMany(factory(\App\Post::class, 10)->make());
         });
         Model::reguard();
     }
