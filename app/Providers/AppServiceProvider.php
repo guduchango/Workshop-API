@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+         $bus = app('Joselfonseca\LaravelTactician\CommandBusInterface');
     }
 
     /**
