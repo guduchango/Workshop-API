@@ -1,5 +1,13 @@
 <?php
 
+use Joselfonseca\FonckToolbox\ServicesFactory;
+use Joselfonseca\Mcs\CalculateShirtPrice\Repositories\FabricArrayRepository;
+use Joselfonseca\Mcs\CalculateShirtPrice\Repositories\ButtonsArrayRepository;
+use Joselfonseca\Mcs\CalculateShirtPrice\Repositories\FabricRepositoryInterface;
+use Joselfonseca\Mcs\CalculateShirtPrice\Repositories\ButtonsRepositoryInterface;
+use Joselfonseca\Mcs\CalculateShirtPrice\Repositories\ManufactureRepositoryInterface;
+use Joselfonseca\Mcs\CalculateShirtPrice\Repositories\ManufactureCostArrayRepository;
+
 class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
     /**

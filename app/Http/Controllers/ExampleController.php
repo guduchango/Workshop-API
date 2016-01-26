@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Services\Cart\CartService;
+use Joselfonseca\LaravelTactician\CommandBusInterface;
 
 class ExampleController extends Controller
 {
-      protected $cartService;
+      protected $bus;
 
-      public function __construct(){
-          $this->cartService = new CartService();
+      public function __construct(CommandBusInterface $bus){
+          $this->bus = $bus;
       }
 
     /**
@@ -22,7 +23,13 @@ class ExampleController extends Controller
      */
     public function index()
     {
-
+      $comand = $this->bus->dispatch(\Joselfonseca\Mcs\CalculateShirtPrice\CalculateShirtPriceCommand::class, [
+          'mts' => 1.5,
+          'fabricSku' => 'RET490'
+      ], [
+          \Joselfonseca\Mcs\CalculateShirtPrice\Middleware\CalculateFabricPrice::class
+      ]);
+      $this->assertEquals(3750, $command->fabricPrice);
     }
 
     /**
