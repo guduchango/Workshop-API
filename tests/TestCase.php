@@ -1,14 +1,11 @@
 <?php
 
-use Joselfonseca\FonckToolbox\ServicesFactory;
-use Joselfonseca\Mcs\CalculateShirtPrice\Repositories\FabricArrayRepository;
-use Joselfonseca\Mcs\CalculateShirtPrice\Repositories\ButtonsArrayRepository;
-use Joselfonseca\Mcs\CalculateShirtPrice\Repositories\FabricRepositoryInterface;
-use Joselfonseca\Mcs\CalculateShirtPrice\Repositories\ButtonsRepositoryInterface;
-use Joselfonseca\Mcs\CalculateShirtPrice\Repositories\ManufactureRepositoryInterface;
-use Joselfonseca\Mcs\CalculateShirtPrice\Repositories\ManufactureCostArrayRepository;
+namespace tests;
 
-class TestCase extends Illuminate\Foundation\Testing\TestCase
+use Illuminate\Foundation\Testing\TestCase as TestCaseIlluminate;
+use Illuminate\Contracts\Console\Kernel;
+
+class TestCase extends TestCaseIlluminate
 {
     /**
      * The base URL to use while testing the application.
@@ -26,7 +23,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
     {
         $app = require __DIR__.'/../bootstrap/app.php';
 
-        $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+        $app->make(Kernel::class)->bootstrap();
 
         return $app;
     }

@@ -3,7 +3,7 @@
 
 $api = app('Dingo\Api\Routing\Router');
 $api->version('v1', function ($api) {
-    $api->group(['namespace' => 'App\Http\Controllers'], function($api){
+    $api->group(['namespace' => 'App\Modules\Users'], function($api){
         $api->resource('users', 'UsersController');
     });
 
