@@ -10,11 +10,7 @@ use Joselfonseca\LaravelTactician\CommandBusInterface;
 
 class ExampleController extends Controller
 {
-      protected $bus;
 
-      public function __construct(CommandBusInterface $bus){
-          $this->bus = $bus;
-      }
 
     /**
      * Display a listing of the resource.
@@ -23,13 +19,7 @@ class ExampleController extends Controller
      */
     public function index()
     {
-      $comand = $this->bus->dispatch(\Joselfonseca\Mcs\CalculateShirtPrice\CalculateShirtPriceCommand::class, [
-          'mts' => 1.5,
-          'fabricSku' => 'RET490'
-      ], [
-          \Joselfonseca\Mcs\CalculateShirtPrice\Middleware\CalculateFabricPrice::class
-      ]);
-      $this->assertEquals(3750, $command->fabricPrice);
+      echo "hola";
     }
 
     /**

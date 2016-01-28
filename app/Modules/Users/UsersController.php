@@ -32,6 +32,8 @@ class UsersController extends Controller
      */
     public function index()
     {
+      echo route('api.users.store');
+      exit();
         return $this->response->paginator(User::paginate(10), new UserTransformer());
     }
 
@@ -45,8 +47,8 @@ class UsersController extends Controller
     {
        $request = $request->all();
 
-       print_r($request);
-       exit();
+      return json_encode("hola");
+      /* exit();
 
       $this->$bus->addHandler(UserCommand::class, UserHandler::class);
 
@@ -71,7 +73,7 @@ class UsersController extends Controller
         $data['password'] = bcrypt($data['password']);
         $data['uuid'] = Uuid::generate(4)->string;
         $user = User::create($data);
-        return $this->response->item($user, new UserTransformer());
+        return $this->response->item($user, new UserTransformer());*/
     }
 
     /**
